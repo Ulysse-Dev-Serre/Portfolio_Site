@@ -2,7 +2,7 @@
 
 Bienvenue sur le dépôt GitHub de mon portfolio personnel ! Ce site est une vitrine de mes projets, de mes compétences et de ma philosophie qui allie la technologie à l'amour de la nature et de l'autonomie alimentaire.
 
-**Visitez le site en ligne :** [Ajoute ici le lien vers ton site déployé quand il sera en ligne]
+**Visitez le site en ligne :** [A venir]
 
 ## ✨ À Propos du Projet
 
