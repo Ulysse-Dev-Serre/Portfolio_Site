@@ -6,7 +6,7 @@ Bienvenue sur le dépôt GitHub de mon portfolio personnel ! Ce site est une vit
 
 ## ✨ À Propos du Projet
 
-Ce portfolio est conçu pour présenter mon parcours en développement web, en mettant en lumière des projets innovants qui explorent le croisement entre la technologie moderne et les principes de durabilité et d'autonomie.
+Ce portfolio est conçu pour présenter mon parcours en développement logiciel.
 
 ## 🚀 Technologies Utilisées
 
