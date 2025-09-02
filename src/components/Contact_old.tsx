@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Github, Linkedin, Send, } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
+  // État local pour gérer les données du formulaire
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,31 +53,36 @@ const Contact: React.FC = () => {
     return () => clearInterval(particleInterval);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // Fonction pour gérer la soumission du formulaire
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-    const serviceID = 'service_bildbbx';
-    const templateID = 'template_wkqiakd';
-    const userID = import.meta.env.VITE_EMAILJS_USERID;
+ 
+  const serviceID = 'service_bildbbx';
+  const templateID = 'template_wkqiakd';
+  const userID = import.meta.env.VITE_EMAILJS_USERID; // API key publique (user ID)
 
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-    };
-
-    emailjs.send(serviceID, templateID, templateParams, userID)
-      .then((response) => {
-        console.log('Email envoyé avec succès!', response.status, response.text);
-        alert('Merci, votre message a bien été envoyé !');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      }, (err) => {
-        console.error('Erreur lors de l envoi:', err);
-        alert('Oups, une erreur est survenue. Veuillez réessayer plus tard.');
-      });
+  // Préparer les variables à envoyer (les champs doivent correspondre au template EmailJS)
+  const templateParams = {
+    from_name: formData.name,
+    from_email: formData.email,
+    subject: formData.subject,
+    message: formData.message,
   };
 
+  emailjs.send(serviceID, templateID, templateParams, userID)
+    .then((response) => {
+      console.log('Email envoyé avec succès!', response.status, response.text);
+      alert('Merci, votre message a bien été envoyé !');
+      // Réinitialiser le formulaire
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }, (err) => {
+      console.error('Erreur lors de l’envoi:', err);
+      alert('Oups, une erreur est survenue. Veuillez réessayer plus tard.');
+    });
+};
+
+  // Fonction pour mettre à jour l'état lors de la saisie dans les champs du formulaire
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -141,115 +147,109 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Informations de Contact */}
           <div className={`lg:col-span-1 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
             <div className="backdrop-blur-md bg-gradient-to-br from-slate-800/80 via-slate-900/70 to-slate-800/80 
                            rounded-2xl p-8 shadow-2xl border border-white/10 hover:border-white/20
                            hover:shadow-[0_25px_50px_rgba(0,0,0,0.4)] transition-all duration-500
                            hover:bg-gradient-to-br hover:from-slate-800/90 hover:via-slate-900/80 hover:to-slate-800/90">
-              
+              {/* Titre de cette boîte */}
               <h3 className="text-2xl font-serif font-bold text-white mb-8 
                            drop-shadow-lg hover:text-amber-300 transition-colors duration-300">
                 Prenez Contact
               </h3>
 
-              <div className="space-y-8">
-                {/* Email */}
-                <div className="flex items-center space-x-4 group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-amber-500/20 to-orange-500/10 rounded-2xl flex items-center justify-center
-                                 border border-amber-400/30 shadow-lg group-hover:shadow-amber-500/25 
-                                 transition-all duration-300 group-hover:scale-110 backdrop-blur-md">
-                    <Mail className="w-6 h-6 text-amber-400 group-hover:animate-pulse" />
+              {/* Liste des informations de contact (Email, Téléphone, Localisation) */}
+              <div className="space-y-6">
+                {/* Élément de contact: Email */}
+                <div className="flex items-center space-x-4">
+                  {/* Cercle d'icône avec fond coloré ajusté au thème (teal) */}
+                  <div className="w-12 h-12 bg-teal-800/20 rounded-full flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-teal-400" /> {/* Icône Courriel */}
                   </div>
                   <div>
-                    <p className="text-sm text-slate-300 font-light">Courriel</p>
+                    <p className="text-sm text-blue-100 dark:text-cyan-200">Courriel</p>
                     <a
                       href="mailto:ulyssebo255@gmail.com"
-                      className="text-white font-medium hover:text-amber-300 transition-colors duration-300"
+                      className="text-white font-medium hover:text-teal-300 transition-colors" // Ajoute une classe pour le survol
                     >
                       ulyssebo255@gmail.com
                     </a>
                   </div>
                 </div>
 
-                {/* Téléphone */}
-                <div className="flex items-center space-x-4 group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-2xl flex items-center justify-center
-                                 border border-blue-400/30 shadow-lg group-hover:shadow-blue-500/25 
-                                 transition-all duration-300 group-hover:scale-110 backdrop-blur-md">
-                    <Phone className="w-6 h-6 text-blue-400 group-hover:animate-pulse" />
+                {/* Élément de contact: Téléphone */}
+                <div className="flex items-center space-x-4">
+                  {/* Cercle d'icône avec fond coloré ajusté au thème (blue) */}
+                  <div className="w-12 h-12 bg-blue-800/20 rounded-full flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-blue-400" /> {/* Icône Téléphone */}
                   </div>
                   <div>
-                    <p className="text-sm text-slate-300 font-light">Téléphone</p>
+                    <p className="text-sm text-blue-100 dark:text-cyan-200">Téléphone</p>
                     <p className="text-white font-medium">+1 (555) 123-4567</p>
                   </div>
                 </div>
 
-                {/* Localisation */}
-                <div className="flex items-center space-x-4 group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-teal-500/20 to-teal-600/10 rounded-2xl flex items-center justify-center
-                                 border border-teal-400/30 shadow-lg group-hover:shadow-teal-500/25 
-                                 transition-all duration-300 group-hover:scale-110 backdrop-blur-md">
-                    <MapPin className="w-6 h-6 text-teal-400 group-hover:animate-pulse" />
+                {/* Élément de contact: Localisation */}
+                <div className="flex items-center space-x-4">
+                  {/* Cercle d'icône avec fond coloré ajusté au thème (cyan) */}
+                  <div className="w-12 h-12 bg-cyan-800/20 rounded-full flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-cyan-400" /> {/* Icône Épingle de carte */}
                   </div>
                   <div>
-                    <p className="text-sm text-slate-300 font-light">Localisation</p>
+                    <p className="text-sm text-blue-100 dark:text-cyan-200">Localisation</p>
                     <p className="text-white font-medium">Repentigny, Québec, Canada</p>
                   </div>
                 </div>
               </div>
 
-              {/* Réseaux sociaux */}
-              <div className="mt-10 pt-8 border-t border-white/10">
+              {/* Liens vers les réseaux sociaux et CV */}
+              <div className="mt-8 pt-8 border-t border-slate-700 dark:border-slate-800">
                 <div className="flex space-x-4">
+                  {/* Lien GitHub */}
                   <a
                     href="https://github.com/Ulysse-Dev-Serre"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group w-12 h-12 bg-gradient-to-br from-slate-700/80 to-slate-800/60 rounded-xl flex items-center justify-center
-                             border border-white/20 hover:border-white/30 shadow-lg hover:shadow-2xl transition-all duration-300 
-                             hover:scale-110 backdrop-blur-md relative overflow-hidden"
+                    // Les boutons de réseaux sociaux sont adaptés au thème sombre.
+                    className="w-10 h-10 bg-white/10 dark:bg-white/5 rounded-full flex items-center justify-center text-white/80 hover:bg-white/20 dark:hover:bg-white/10 transition-colors"
                     aria-label="Profil GitHub"
                   >
-                    <Github className="w-6 h-6 text-white group-hover:text-amber-300 transition-colors z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
-                                   translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                    <Github className="w-5 h-5" />
                   </a>
+                  {/* Lien LinkedIn */}
                   <a
                     href="https://www.linkedin.com/in/ulysse-borris-052216331/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group w-12 h-12 bg-gradient-to-br from-slate-700/80 to-slate-800/60 rounded-xl flex items-center justify-center
-                             border border-white/20 hover:border-white/30 shadow-lg hover:shadow-2xl transition-all duration-300 
-                             hover:scale-110 backdrop-blur-md relative overflow-hidden"
+                    // Les boutons de réseaux sociaux sont adaptés au thème sombre.
+                    className="w-10 h-10 bg-white/10 dark:bg-white/5 rounded-full flex items-center justify-center text-white/80 hover:bg-white/20 dark:hover:bg-white/10 transition-colors"
                     aria-label="Profil LinkedIn"
                   >
-                    <Linkedin className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
-                                   translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                    <Linkedin className="w-5 h-5" />
                   </a>
                 </div>
+
+
               </div>
             </div>
           </div>
 
-          {/* Formulaire de Contact */}
-          <div className={`lg:col-span-2 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <div className="backdrop-blur-md bg-gradient-to-br from-slate-800/80 via-slate-900/70 to-slate-800/80 
-                           rounded-2xl p-8 shadow-2xl border border-white/10 hover:border-white/20
-                           hover:shadow-[0_25px_50px_rgba(0,0,0,0.4)] transition-all duration-500
-                           hover:bg-gradient-to-br hover:from-slate-800/90 hover:via-slate-900/80 hover:to-slate-800/90">
-              
-              <h3 className="text-2xl font-serif font-bold text-white mb-8 
-                           drop-shadow-lg hover:text-amber-300 transition-colors duration-300">
+          {/* --- Colonne du Formulaire de Contact --- */}
+          <div className="lg:col-span-2">
+            {/* Boîte du formulaire de contact */}
+            {/* Le fond du formulaire est sombre, avec une bordure subtile. */}
+            <div className="bg-slate-800 dark:bg-slate-900 rounded-2xl p-8 shadow-lg border border-slate-700 dark:border-slate-800">
+              {/* Titre du formulaire */}
+              <h3 className="text-2xl font-serif font-bold text-white mb-6">
                 Envoyer un Message
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Nom et Email */}
+              {/* Formulaire */}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Champs Nom et Email (grille à 2 colonnes) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="group">
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-200 mb-3 group-focus-within:text-amber-400 transition-colors">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-blue-100 dark:text-cyan-200 mb-2">
                       Votre Nom
                     </label>
                     <input
@@ -258,16 +258,15 @@ const Contact: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 bg-slate-700/50 border border-white/20 rounded-xl 
-                               focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 text-white 
-                               transition-all duration-300 placeholder-slate-400 backdrop-blur-md
-                               hover:border-white/30 hover:bg-slate-700/70"
+                      // Les champs de formulaire sont sombres avec un focus bleu/turquoise.
+                      className="w-full px-4 py-3 bg-slate-700 dark:bg-slate-800 border border-slate-600 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white transition-colors placeholder-slate-400"
+                       
                       required
                     />
                   </div>
-                  <div className="group">
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-200 mb-3 group-focus-within:text-amber-400 transition-colors">
-                      Adresse E-mail
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-blue-100 dark:text-cyan-200 mb-2">
+                      Adresse e-mail
                     </label>
                     <input
                       type="email"
@@ -275,18 +274,17 @@ const Contact: React.FC = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 bg-slate-700/50 border border-white/20 rounded-xl 
-                               focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 text-white 
-                               transition-all duration-300 placeholder-slate-400 backdrop-blur-md
-                               hover:border-white/30 hover:bg-slate-700/70"
+                      // Les champs de formulaire sont sombres avec un focus bleu/turquoise.
+                      className="w-full px-4 py-3 bg-slate-700 dark:bg-slate-800 border border-slate-600 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white transition-colors placeholder-slate-400"
+                      
                       required
                     />
                   </div>
                 </div>
 
-                {/* Sujet */}
-                <div className="group">
-                  <label htmlFor="subject" className="block text-sm font-medium text-slate-200 mb-3 group-focus-within:text-amber-400 transition-colors">
+                {/* Champ Sujet (menu déroulant) */}
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-blue-100 dark:text-cyan-200 mb-2">
                     Sujet
                   </label>
                   <select
@@ -294,10 +292,8 @@ const Contact: React.FC = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 bg-slate-700/50 border border-white/20 rounded-xl 
-                             focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 text-white 
-                             transition-all duration-300 backdrop-blur-md appearance-none
-                             hover:border-white/30 hover:bg-slate-700/70"
+                    // Les champs de formulaire sont sombres avec un focus bleu/turquoise.
+                    className="w-full px-4 py-3 bg-slate-700 dark:bg-slate-800 border border-slate-600 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white transition-colors appearance-none" // appearance-none pour un style personnalisé
                     required
                   >
                     <option value="">Sélectionnez un sujet</option>
@@ -309,9 +305,9 @@ const Contact: React.FC = () => {
                   </select>
                 </div>
 
-                {/* Message */}
-                <div className="group">
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-200 mb-3 group-focus-within:text-amber-400 transition-colors">
+                {/* Champ Message (zone de texte) */}
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-blue-100 dark:text-cyan-200 mb-2">
                     Message
                   </label>
                   <textarea
@@ -320,36 +316,31 @@ const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full px-6 py-4 bg-slate-700/50 border border-white/20 rounded-xl 
-                             focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 text-white 
-                             transition-all duration-300 resize-none placeholder-slate-400 backdrop-blur-md
-                             hover:border-white/30 hover:bg-slate-700/70"
+                    // Les champs de formulaire sont sombres avec un focus bleu/turquoise.
+                    className="w-full px-4 py-3 bg-slate-700 dark:bg-slate-800 border border-slate-600 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white transition-colors resize-none placeholder-slate-400"
                     placeholder="Parlez-moi de votre projet ou de votre idée..." 
                     required
                   />
                 </div>
 
-                {/* Bouton Envoyer */}
-                <button
-                  type="submit"
-                  className="group w-full flex items-center justify-center space-x-3 px-8 py-4 
-                           bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 
-                           hover:from-amber-400 hover:via-orange-400 hover:to-amber-500 
-                           text-white rounded-xl font-semibold transition-all duration-500 
-                           transform hover:scale-105 shadow-2xl hover:shadow-[0_20px_40px_rgba(251,191,36,0.4)]
-                           border border-white/20 backdrop-blur-sm relative overflow-hidden"
-                >
-                  <Send className="w-6 h-6 group-hover:rotate-12 group-hover:translate-x-1 transition-all duration-300" />
-                  <span className="text-lg font-semibold tracking-wide">Envoyer le Message</span>
-                  
-                  {/* Effet de lueur interne */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
-                                 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                </button>
+                {/* Boutons Soumettre et Message direct */}
+                <div className="flex space-x-4">
+                  {/* Bouton "Envoyer le message" avec dégradé bleu/turquoise */}
+                  <button
+                    type="submit"
+                    className="flex-1 flex items-center justify-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white rounded-lg font-medium transition-colors transform hover:scale-105"
+                  >
+                    <Send className="w-5 h-5" />
+                    <span>Envoyer le Message</span> 
+                  </button>
+                  {/* Bouton "Message direct" adapté au thème sombre. */}
+
+                </div>
               </form>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

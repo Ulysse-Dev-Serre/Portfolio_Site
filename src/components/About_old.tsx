@@ -6,37 +6,6 @@ const About: React.FC = () => {
   const [particles, setParticles] = useState<Array<{id: number, x: number, y: number, size: number, speed: number, opacity: number, direction: number}>>([]);
   const [visibleMilestones, setVisibleMilestones] = useState<boolean[]>([]);
 
-  const milestones = [
-    {
-      icon: <MapPin className="w-5 h-5" />,
-      title: "Agriculteur Biologique",
-      period: "2017–2019",
-      description:
-        "Lancement d'une entreprise maraîchère spécialisée en agriculture biologique intensive, inspirée des méthodes de Jean-Martin Fortier.",
-    },
-    {
-      icon: <Sprout className="w-5 h-5" />, 
-      title: "Projets d'Autosuffisance Alimentaire",
-      period: "2019–2023",
-      description:
-        "Participation au développement de projets communautaires d'autosuffisance alimentaire au sein de milieux alternatifs low-thech au Québec.",
-    },
-    {
-      icon: <Bug className="w-5 h-5" />, 
-      title: "Initiation à l'Apiculture",
-      period: "2021–2023",
-      description:
-        "Formation en apiculture écologique alternative, avec entretien et développement de différents modèles de ruches",
-    },
-    {
-      icon: <GraduationCap className="w-5 h-5" />,
-      title: "Études en Développement Logiciel",
-      period: "2024–2026",
-      description:
-        "Poursuite d'un AEC en Développement Logiciel, axée sur l'apprentissage global de la programmation : du web au logiciel, en passant par les bases de données, au service web et au front end.",
-    },
-  ];
-
   useEffect(() => {
     setIsVisible(true);
     
@@ -94,6 +63,38 @@ const About: React.FC = () => {
       milestoneTimers.forEach(timer => clearTimeout(timer));
     };
   }, []);
+
+  const milestones = [
+    {
+      icon: <MapPin className="w-5 h-5" />,
+      title: "Agriculteur Biologique",
+      period: "2017–2019",
+      description:
+        "Lancement d'une entreprise maraîchère spécialisée en agriculture biologique intensive, inspirée des méthodes de Jean-Martin Fortier.",
+    },
+    {
+      icon: <Sprout className="w-5 h-5" />, 
+      title: "Projets d’Autosuffisance Alimentaire",
+      period: "2019–2023",
+      description:
+        "Participation au développement de projets communautaires d'autosuffisance alimentaire au sein de milieux alternatifs low-thech au Québec.",
+    },
+    {
+      icon: <Bug className="w-5 h-5" />, 
+      title: "Initiation à l’Apiculture",
+      period: "2021–2023",
+      description:
+        "Formation en apiculture écologique alternative, avec entretien et développement de différents modèles de ruches",
+    },
+    {
+      icon: <GraduationCap className="w-5 h-5" />,
+      title: "Études en Développement Logiciel",
+      period: "2024–2026",
+      description:
+        "Poursuite d'un AEC en Développement Logiciel, axée sur l’apprentissage global de la programmation : du web au logiciel, en passant par les bases de données, au service web et au front end.",
+    },
+
+  ];
 
   return (
     <section
@@ -171,78 +172,51 @@ const About: React.FC = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/20 to-teal-400/20 
                              blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
             </div>
+  
 
             <div className="space-y-8 text-lg text-slate-200 leading-relaxed font-light">
-              <div className="transform transition-all duration-700 delay-300 opacity-0 translate-y-4
-                            animate-[fadeInUp_0.8s_ease-out_0.3s_forwards]">
-                <p className="backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10
-                             hover:bg-white/10 hover:border-white/20 transition-all duration-300
-                             shadow-lg hover:shadow-emerald-500/10">
-                  Mon parcours a débuté <span className="text-emerald-400 font-medium">les mains dans la terre</span>, dans une quête minimaliste d'autosuffisance alimentaire.
-                  J'ai exploré la production de légumes et de fruits frais, de miel et de cire, de plantes médicinales,
-                  ainsi que la cueillette sauvage — à la fois pour mes besoins personnels que pour contribuer concrètement à <span className="text-teal-400 font-medium">l'approvisionnement local</span>.
-                </p>
-              </div>
+              <p>
+                Mon parcours a débuté les mains dans la terre, dans une quête minimaliste d’autosuffisance alimentaire.
+                J’ai exploré la production de légumes et de fruits frais, de miel et de cire, de plantes médicinales,
+                ainsi que la cueillette sauvage — à la fois pour mes besoins personnels que pour contribuer concrètement à l’approvisionnement local.
+                .
+              </p>
 
-              <div className="transform transition-all duration-700 delay-500 opacity-0 translate-y-4
-                            animate-[fadeInUp_0.8s_ease-out_0.5s_forwards]">
-                <p className="backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10
-                             hover:bg-white/10 hover:border-white/20 transition-all duration-300
-                             shadow-lg hover:shadow-teal-500/10">
-                  Cette immersion dans le vivant m'a amené à réfléchir aux liens entre <span className="text-blue-400 font-medium">autonomie alimentaire et technologies contemporaines</span>. 
-                  Peu à peu, j'ai entrevu le potentiel d'outils simples et connectés pour accompagner, sans dénaturer, les pratiques de jardinage 
-                  et de culture à petite échelle, en milieu urbain comme rural.
-                </p>
-              </div>
-
-              <div className="transform transition-all duration-700 delay-700 opacity-0 translate-y-4
-                            animate-[fadeInUp_0.8s_ease-out_0.7s_forwards]">
-                <p className="backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10
-                             hover:bg-white/10 hover:border-white/20 transition-all duration-300
-                             shadow-lg hover:shadow-purple-500/10">
-                  Actuellement en <span className="text-purple-400 font-medium">AEC en Développement Logiciel</span> (2024–2026), j'y découvre les fondements du développement logiciel, notamment le front-end avec React et Flutter, 
+                <p>
+                    Cette immersion dans le vivant m’a amené à réfléchir aux liens entre autonomie alimentaire et technologies contemporaines. 
+                    Peu à peu, j’ai entrevu le potentiel d’outils simples et connectés pour accompagner, sans dénaturer, les pratiques de jardinage 
+                    et de culture à petite échelle, en milieu urbain comme rural.
+               </p>
+              <p>
+                  Actuellement en AEC en Développement Logiciel (2024–2026), j’y découvre les fondements du développement logiciel, notamment le front-end avec React et Flutter, 
                   afin de donner vie à mes projets, concevoir mes vitrines web et explorer le développement mobile. En parallèle, je me concentre sur les domaines qui 
-                  me passionnent : <span className="text-cyan-400 font-medium">Python, les APIs Flask, l'électronique embarquée (Raspberry Pi), la gestion de données et le machine learning</span>.
-                </p>
-              </div>
+                  me passionnent : Python, les APIs Flask, l’électronique embarquée (Raspberry Pi), la gestion de données et le machine learning.
+              </p>
             </div>
+
+
           </div>
 
           <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 via-teal-500 to-blue-500 rounded-full opacity-60"></div>
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-teal-600"></div>
 
-            <div className="space-y-12">
+            <div className="space-y-8">
               {milestones.map((milestone, index) => (
-                <div 
-                  key={index} 
-                  className={`relative flex items-start space-x-6 transform transition-all duration-700 delay-[${1000 + index * 200}ms]
-                             ${visibleMilestones[index] ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}
-                >
-                  <div className="flex-shrink-0 relative">
-                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center text-white
-                                   shadow-2xl hover:shadow-emerald-500/40 transition-all duration-300 hover:scale-110 hover:rotate-12
-                                   border-2 border-white/20 backdrop-blur-sm group">
-                      <div className="group-hover:animate-pulse">
-                        {milestone.icon}
-                      </div>
-                    </div>
-                    {/* Effet de lueur */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl blur-md opacity-30 -z-10"></div>
+                <div key={index} className="relative flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-blue-600 to-teal-600 rounded-full flex items-center justify-center text-white">
+                    {milestone.icon}
                   </div>
 
-                  <div className="flex-grow backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10
-                                 hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-lg
-                                 hover:shadow-emerald-500/10 hover:translate-x-2">
-                    <div className="flex items-center space-x-4 mb-3">
-                      <h3 className="text-xl font-semibold text-white group-hover:text-emerald-300 transition-colors">
+                  <div className="flex-grow">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <h3 className="text-lg font-semibold text-white">
                         {milestone.title}
                       </h3>
-                      <span className="px-3 py-1 bg-gradient-to-br from-emerald-500/20 to-teal-500/10 text-emerald-300 text-sm rounded-full
-                                     border border-emerald-400/30 backdrop-blur-md shadow-lg">
+                      <span className="px-2 py-1 bg-white/10 dark:bg-white/5 text-white/80 text-sm rounded-full">
                         {milestone.period}
                       </span>
                     </div>
-                    <p className="text-slate-200 leading-relaxed font-light">
+                    <p className="text-blue-100 dark:text-cyan-200">
                       {milestone.description}
                     </p>
                   </div>

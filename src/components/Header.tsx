@@ -1,6 +1,5 @@
 import React from 'react';
 import { Moon, Sun, Github, Linkedin, Mail } from 'lucide-react';
-// IMPORTE Link et useNavigate
 import { Link, useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
@@ -9,102 +8,112 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
-  const navigate = useNavigate(); // Hook pour naviguer programmatiquement
+  const navigate = useNavigate();
 
   const handleNavLinkClick = (sectionId: string) => {
-    // Si nous ne sommes pas sur la page d'accueil, navigue d'abord vers l'accueil
     if (window.location.pathname !== '/') {
-      navigate('/'); // Redirige vers la page d'accueil
-      // Utilise un petit délai pour que la navigation se fasse avant le scroll
+      navigate('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         element?.scrollIntoView({ behavior: 'smooth' });
-      }, 100); // Délai en ms, peut être ajusté
+      }, 100);
     } else {
-      // Si nous sommes déjà sur la page d'accueil, défile simplement
       const element = document.getElementById(sectionId);
       element?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-blue-200/50 dark:border-cyan-700/50">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md 
+                     bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90 
+                     border-b border-white/10 shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Section Logo et Nom (Peut aussi rediriger vers l'accueil) */}
-          <Link to="/" className="flex items-center space-x-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">UB</span> 
+          {/* Logo Premium */}
+          <Link to="/" className="flex items-center space-x-4 group">
+            <div className="relative">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-teal-600 rounded-xl 
+                             flex items-center justify-center shadow-lg transition-all duration-300 
+                             group-hover:shadow-[0_10px_30px_rgba(59,130,246,0.4)] group-hover:scale-110
+                             border border-white/20 backdrop-blur-sm">
+                <span className="text-white font-bold text-lg drop-shadow-lg">UB</span>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-teal-400/20 rounded-xl 
+                             blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <div>
-              <h1 className="text-xl font-serif font-bold text-slate-800 dark:text-white">
+              <h1 className="text-xl font-serif font-bold text-white drop-shadow-lg 
+                           group-hover:text-blue-300 transition-colors duration-300">
                 Ulysse Borris
               </h1>
-              <p className="text-xs text-blue-600 dark:text-teal-400">
+              <p className="text-xs bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent font-medium">
                 Code • Nature • Innovation
               </p>
             </div>
           </Link>
 
-          {/* Navigation principale */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => handleNavLinkClick('home')}
-              className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-teal-400 transition-colors font-medium"
-            >
-              Accueil
-            </button>
-            <button
-              onClick={() => handleNavLinkClick('projects')}
-              className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-teal-400 transition-colors font-medium"
-            >
-              Projets
-            </button>
-            <button
-              onClick={() => handleNavLinkClick('about')}
-              className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-teal-400 transition-colors font-medium"
-            >
-              À Propos
-            </button>
-            <button
-              onClick={() => handleNavLinkClick('contact')}
-              className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-teal-400 transition-colors font-medium"
-            >
-              Contact
-            </button>
+          {/* Navigation Premium */}
+          <nav className="hidden md:flex items-center space-x-2">
+            {[
+              { id: 'home', label: 'Accueil' },
+              { id: 'projects', label: 'Projets' },
+              { id: 'about', label: 'À Propos' },
+              { id: 'contact', label: 'Contact' }
+            ].map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => handleNavLinkClick(id)}
+                className="group relative px-4 py-2 text-slate-200 font-medium transition-all duration-300
+                         hover:text-white hover:scale-105"
+              >
+                <span className="relative z-10">{label}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-purple-600/0 to-teal-600/0 
+                               rounded-lg opacity-0 group-hover:opacity-100 group-hover:from-blue-600/20 
+                               group-hover:via-purple-600/20 group-hover:to-teal-600/20 transition-all duration-300
+                               backdrop-blur-sm border border-white/0 group-hover:border-white/10"></div>
+              </button>
+            ))}
           </nav>
 
-          {/* Boutons d'actions (réseaux sociaux, mode jour/nuit) */}
-          <div className="flex items-center space-x-4">
-            <div className="hidden sm:flex items-center space-x-3">
-              <a
-                href="https://github.com/Ulysse-Dev-Serre" // Utilise ton vrai lien GitHub
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-teal-400 transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ulysse-borris-052216331/" // Utilise ton vrai lien LinkedIn
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-teal-400 transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:ulyssebo255@gmail.com" 
-                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-teal-400 transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
+          {/* Actions Premium */}
+          <div className="flex items-center space-x-3">
+            <div className="hidden sm:flex items-center space-x-2">
+              {[
+                { href: 'https://github.com/Ulysse-Dev-Serre', icon: Github, color: 'hover:text-amber-400' },
+                { href: 'https://www.linkedin.com/in/ulysse-borris-052216331/', icon: Linkedin, color: 'hover:text-blue-400' },
+                { href: 'mailto:ulyssebo255@gmail.com', icon: Mail, color: 'hover:text-teal-400' }
+              ].map(({ href, icon: Icon, color }, index) => (
+                <a
+                  key={index}
+                  href={href}
+                  target={href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                  className={`group p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 
+                             ${color} transition-all duration-300 hover:scale-110 
+                             hover:shadow-lg backdrop-blur-sm relative overflow-hidden`}
+                >
+                  <Icon className="w-5 h-5 group-hover:animate-pulse transition-all z-10 relative" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent 
+                                 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                </a>
+              ))}
             </div>
+            
+            {/* Theme Toggle Premium */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-lg bg-blue-100 dark:bg-cyan-800 text-blue-700 dark:text-cyan-300 hover:bg-blue-200 dark:hover:bg-cyan-700 transition-colors"
+              className="group p-3 rounded-lg bg-gradient-to-br from-slate-700/80 to-slate-800/60 
+                       border border-white/20 text-white hover:border-white/30 
+                       transition-all duration-300 hover:scale-110 hover:shadow-xl 
+                       backdrop-blur-md relative overflow-hidden"
             >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {darkMode ? (
+                <Sun className="w-5 h-5 group-hover:rotate-180 group-hover:text-yellow-400 transition-all duration-500" />
+              ) : (
+                <Moon className="w-5 h-5 group-hover:rotate-12 group-hover:text-blue-400 transition-all duration-500" />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
+                             translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </button>
           </div>
         </div>
