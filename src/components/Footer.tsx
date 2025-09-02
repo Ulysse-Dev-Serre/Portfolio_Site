@@ -138,9 +138,9 @@ const Footer: React.FC = () => {
               </p>
               <div className="flex space-x-8 text-sm">
                 {[
-                  { href: '/politique-confidentialite', label: 'Confidentialité' },
-                  { href: '/conditions-generales', label: 'Conditions' },
-                  { href: '/politique-cookies', label: 'Cookies' }
+                  { href: '/#/politique-confidentialite', label: 'Confidentialité' },
+                  { href: '/#/conditions-generales', label: 'Conditions' },
+                  { href: '/#/politique-cookies', label: 'Cookies' }
                 ].map(({ href, label }) => (
                   <a 
                     key={href}
