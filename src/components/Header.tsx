@@ -1,6 +1,6 @@
 import React from 'react';
 import { Moon, Sun, Github, Linkedin, Mail } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   darkMode: boolean;
@@ -9,17 +9,20 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavLinkClick = (sectionId: string) => {
-    if (window.location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        element?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+    const scrollToSection = () => {
+      const el = document.getElementById(sectionId);
+      el?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    // En HashRouter, l'accueil est '#/'.
+    if (location.hash !== '#/') {
+      navigate('/');                 // va à '#/'
+      setTimeout(scrollToSection, 100); // laisse le temps au DOM d’être prêt
     } else {
-      const element = document.getElementById(sectionId);
-      element?.scrollIntoView({ behavior: 'smooth' });
+      scrollToSection();
     }
   };
 
@@ -29,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
                      border-b border-white/10 shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo Premium */}
+          {/* Logo → retourne toujours à l’accueil '#/' */}
           <Link to="/" className="flex items-center space-x-4 group">
             <div className="relative">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-teal-600 rounded-xl 
@@ -52,10 +55,23 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
             </div>
           </Link>
 
-          {/* Navigation Premium */}
+          {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-2">
+            {/* Accueil → utiliser Link to="/" (important en HashRouter) */}
+            <Link
+              to="/"
+              className="group relative px-4 py-2 text-slate-200 font-medium transition-all duration-300
+                         hover:text-white hover:scale-105"
+            >
+              <span className="relative z-10">Accueil</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-purple-600/0 to-teal-600/0 
+                               rounded-lg opacity-0 group-hover:opacity-100 group-hover:from-blue-600/20 
+                               group-hover:via-purple-600/20 group-hover:to-teal-600/20 transition-all duration-300
+                               backdrop-blur-sm border border-white/0 group-hover:border-white/10"></div>
+            </Link>
+
+            {/* Sections de la page d’accueil → boutons qui scrollent */}
             {[
-              { id: 'home', label: 'Accueil' },
               { id: 'projects', label: 'Projets' },
               { id: 'about', label: 'À Propos' },
               { id: 'contact', label: 'Contact' }
@@ -75,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
             ))}
           </nav>
 
-          {/* Actions Premium */}
+          {/* Actions (inchangé) */}
           <div className="flex items-center space-x-3">
             <div className="hidden sm:flex items-center space-x-2">
               {[
@@ -98,8 +114,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
                 </a>
               ))}
             </div>
-            
-            {/* Theme Toggle Premium */}
+
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="group p-3 rounded-lg bg-gradient-to-br from-slate-700/80 to-slate-800/60 
@@ -123,3 +138,4 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
 };
 
 export default Header;
+
