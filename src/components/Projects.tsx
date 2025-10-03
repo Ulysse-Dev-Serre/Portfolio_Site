@@ -1,6 +1,6 @@
 // src/components/Projects.tsx
 import React, { useState, useEffect } from "react";
-import { ExternalLink, Github, Cpu, Leaf, Zap } from "lucide-react";
+import { ExternalLink, Cpu, Leaf, Zap } from "lucide-react";
 import ProjectModal from "./ProjectModal"; // Importe le nouveau composant de modale
 
 const Projects: React.FC = () => {
@@ -63,15 +63,17 @@ const Projects: React.FC = () => {
       technologies: [
         "IoT",
         "Raspberry Pi",
-        "Capteurs CO₂ / Température / Humidité",
-        "Python",
-        "Flask",
-        "PostgreSQL",
-        "Électronique",
         "Relais",
-        "Ventilation",
-        "LED",
-        "Humidificateur"
+        "Capteur SCD30",
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "Electron",
+        
+        
+        
+        
+        
       ],
       icon: <Leaf className="w-8 h-8" />,
       color: "from-teal-500 to-teal-700",
@@ -80,26 +82,57 @@ const Projects: React.FC = () => {
 
       // ——— CONTENU DÉTAILLÉ POUR LA MODALE ———
       fullDescription: [
-        "La mini-serre IoT d’intérieur est née en 2024, dans deux mètres carrés d’un placard d’étudiant. Parallèlement à mon AEC en développement de systèmes, j’y ai installé ma première serre à champignons comestibles.",
-        "Le projet combine autosuffisance alimentaire et innovation technique.",
-        "J’y développe :",
-        "• Un système IoT piloté par Raspberry Pi, connecté à des capteurs environnementaux et à des actionneurs régulant humidité, température et CO₂.",
-        "• Une collecte de données de culture pour entraîner un modèle d’IA visant à optimiser les cycles de production.",
-        "Objectifs :",
-        "1. Explorer des pistes d’autosuffisance alimentaire urbaine.",
-        "2. Repousser les frontières de l’agritech accessible et réparable."
+        "La mini-serre IoT d'intérieur est née en 2024, dans deux mètres carrés d'un placard d'étudiant. Parallèlement à mon AEC en développement de systèmes, j'y ai installé ma première serre à champignons comestibles.",
+        "Le projet combine autosuffisance alimentaire et innovation technique, avec deux composantes principales : un backend IoT pour le contrôle automatisé, et une interface desktop pour le monitoring et la gestion."
       ],
 
-      images: ["/images/mini-serre-fungus.jpg"],
-
-      features: [
-        "Capteurs IoT avec suivi temps réel",
-        "Contrôle climatique assisté par IA",
-        "API ouverte et documentation",
-        "Code open-source sur GitHub"
+      sections: [
+        {
+          title: "🍄 Backend IoT - Contrôle Automatisé (Raspberry Pi)",
+          description: [
+            "Système de contrôle automatisé pour serre à champignons, propulsé par Raspberry Pi et FastAPI.",
+            "Ce backend explore l'Internet des Objets (IoT) appliqué à l'agriculture, en combinant autosuffisance alimentaire et innovation technologique. Il offre un contrôle intelligent de l'environnement via capteurs et actionneurs connectés."
+          ],
+          image: "/images/mini-serre-fungus.jpg",
+          features: [
+            " Monitoring en temps réel : Température, humidité, CO₂ (capteur SCD30)",
+            " Éclairage intelligent : LEDs programmables par plage horaire",
+            " Gestion de l'humidité : Humidificateur à seuils configurables",
+            " Ventilation adaptative : Extraction automatique selon niveau CO₂",
+            " Modes automatique et manuel avec API REST complète",
+            " API sécurisée par token avec documentation Swagger",
+            " Persistance des données dans SQLite pour analyse"
+          ]
+        },
+        {
+          title: "🖥️ Interface Desktop Electron - Monitoring & Contrôle",
+          description: [
+            "Application desktop multiplateforme permettant de contrôler et surveiller la serre en temps réel.",
+            "Interface moderne avec design dark mode (style high-tech/cyberpunk) offrant une expérience utilisateur fluide et intuitive."
+          ],
+          image: "/images/Electron_app1.png",
+          features: [
+            " Dashboard temps réel avec graphiques interactifs (Chart.js)",
+            " Contrôle manuel des actionneurs (LEDs, humidificateur, ventilation)",
+            " Configuration des seuils et horaires directement depuis l'interface",
+            " Historique graphique des données sur 24h, 48h ou 7 jours",
+            " Statistiques détaillées (min/max/moyenne)",
+            " Fonction d'arrêt d'urgence pour intervention rapide",
+            " Communication REST avec le Raspberry Pi"
+          ]
+        }
       ],
       websiteLink: "https://github.com/Ulysse-Dev-Serre/Projet_IoT_RaspberryPi",
-      githubLink: "https://github.com/Ulysse-Dev-Serre/Projet_IoT_RaspberryPi"
+      githubLinks: [
+        {
+          title: "Backend Logic (FastAPI)",
+          url: "https://github.com/Ulysse-Dev-Serre/Projet_IoT_RaspberryPi"
+        },
+        {
+          title: "App Desktop (Electron)",
+          url: "https://github.com/Ulysse-Dev-Serre/Projet_iot_Electron_UI.git"
+        }
+      ]
     },
 
     {
@@ -147,7 +180,7 @@ const Projects: React.FC = () => {
         "Base réutilisable pour lancer rapidement de nouvelles boutiques",
       description:
         "Starter Next.js prêt à personnaliser : front-end modulable, back-end complet, multi-langues, multi-devises, authentification et paiements sécurisés.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "JWT", "Stripe"],
+      technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Prisma ORM", "PostgreSQL", "Clerk", "Stripe", "next-intl"],
       icon: <Zap className="w-8 h-8" />,
       color: "from-cyan-500 to-cyan-700",
       bgColor: "bg-cyan-50 dark:bg-cyan-900/20",
@@ -155,12 +188,21 @@ const Projects: React.FC = () => {
 
       // ——— CONTENU DÉTAILLÉ POUR LA MODALE ———
       fullDescription: [
-        "Objectif : disposer d’une base stable et rapide à adapter pour déployer de nouvelles boutiques.",
-        "Fonctionnalités clés : authentification, gestion des produits et du panier, intégration Stripe, internationalisation et configuration thématique facilitée."
+        "Starter e-commerce universel, flexible et prêt à l'emploi pour lancer rapidement des boutiques en ligne dans n'importe quelle niche et pays.",
+        "Une base technique solide et modulaire, pas une boutique figée : conçue pour s'adapter à tout type de commerce (animaux, plantes, jouets, vêtements, électronique...) et être opérationnelle en quelques jours."
       ],
-      images: [],
-      features: [],
-      githubLink: "https://github.com/Ulysse-Dev-Serre/ecomerce-starter",
+      
+      features: [
+        " E-commerce complet : Catalogue avec variantes, panier intelligent, checkout Stripe, emails automatiques",
+        " Multi-pays : Canada/USA/France avec taxes locales, devises et zones d'expédition configurables",
+        " Multi-langues : URLs bilingues (/fr/, /en/) avec SEO optimisé via next-intl",
+        " Production-ready : Auth Clerk, sécurité avancée (rate limiting, CSRF, XSS), monitoring et logs",
+        " Personnalisation rapide : Système de thèmes CSS modulables, configuration par variables d'environnement",
+        " Déploiement ultra-rapide : De l'idée à la boutique en ligne en 5 minutes avec Vercel/Railway",
+        " Qualité du code : TypeScript strict, tests automatisés, documentation complète",
+        " Architecture modulaire : Prisma ORM, Next.js 15 API Routes, extensible facilement"
+      ],
+      githubLink: "https://github.com/Ulysse-Dev-Serre/ecommerce-starter-v2",
       websiteLink: ""
     }
   ];
@@ -316,24 +358,6 @@ const Projects: React.FC = () => {
                 </div>
 
                 <div className="flex space-x-4">
-                  {/* Bouton "Code" (vers GitHub) - conditionnel si githubLink existe */}
-                  {project.githubLink && (
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center space-x-2 px-6 py-3 bg-gradient-to-br from-slate-700 to-slate-800 
-                               text-white rounded-xl hover:from-slate-600 hover:to-slate-700 transition-all duration-300 
-                               border border-white/20 hover:border-white/30 shadow-lg hover:shadow-2xl hover:scale-105
-                               backdrop-blur-sm relative overflow-hidden"
-                    >
-                      <Github className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                      <span className="font-medium">Code</span>
-                      {/* Effet de lueur au hover */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
-                                     translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                    </a>
-                  )}
                   {/* Bouton "En savoir plus" - Ouvre la modale */}
                   <button
                     onClick={() => openModal(project)}

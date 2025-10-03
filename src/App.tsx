@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 // AJOUTE CETTE LIGNE
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -16,27 +16,15 @@ import TermsAndConditions from "./pages/TermsAndConditions"; // À créer
 import CookiePolicy from "./pages/CookiePolicy"; // À créer
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
+    document.documentElement.classList.add("dark");
+  }, []);
 
   return (
     // ENVELOPPE TOUT ICI AVEC <Router>
     <Router>
-      <div
-        className={`min-h-screen transition-colors duration-300 ${
-          darkMode
-            ? "dark bg-slate-900"
-            : "bg-gradient-to-br from-slate-50 to-emerald-50"
-        }`}
-      >
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      <div className="min-h-screen transition-colors duration-300 dark bg-slate-900">
+        <Header />
 
         <main>
           {/* UTILISE <Routes> ET <Route> POUR LA NAVIGATION */}

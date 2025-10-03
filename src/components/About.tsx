@@ -202,7 +202,7 @@ const About: React.FC = () => {
                              shadow-lg hover:shadow-purple-500/10">
                   Actuellement en <span className="text-purple-400 font-medium">AEC en Développement Logiciel</span> (2024–2026), j'y découvre les fondements du développement logiciel, notamment le front-end avec React et Flutter, 
                   afin de donner vie à mes projets, concevoir mes vitrines web et explorer le développement mobile. En parallèle, je me concentre sur les domaines qui 
-                  me passionnent : <span className="text-cyan-400 font-medium">Python, les APIs Flask, l'électronique embarquée (Raspberry Pi), la gestion de données et le machine learning</span>.
+                  me passionnent : <span className="text-cyan-400 font-medium"> Python, Service web, l'électronique embarquée (Raspberry Pi), la gestion de données et l'IA</span>.
                 </p>
               </div>
             </div>

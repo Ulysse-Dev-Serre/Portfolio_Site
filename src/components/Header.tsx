@@ -1,13 +1,8 @@
 import React from 'react';
-import { Moon, Sun, Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-interface HeaderProps {
-  darkMode: boolean;
-  setDarkMode: (dark: boolean) => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
+const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -114,22 +109,6 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
                 </a>
               ))}
             </div>
-
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="group p-3 rounded-lg bg-gradient-to-br from-slate-700/80 to-slate-800/60 
-                       border border-white/20 text-white hover:border-white/30 
-                       transition-all duration-300 hover:scale-110 hover:shadow-xl 
-                       backdrop-blur-md relative overflow-hidden"
-            >
-              {darkMode ? (
-                <Sun className="w-5 h-5 group-hover:rotate-180 group-hover:text-yellow-400 transition-all duration-500" />
-              ) : (
-                <Moon className="w-5 h-5 group-hover:rotate-12 group-hover:text-blue-400 transition-all duration-500" />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
-                             translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            </button>
           </div>
         </div>
       </div>
