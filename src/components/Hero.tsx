@@ -65,15 +65,15 @@ const Hero: React.FC = () => {
       ref={heroRef}
       id="home" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden 
-                 bg-gradient-to-br from-blue-950 via-purple-950 to-cyan-950 
-                 dark:from-black dark:via-purple-950 dark:to-gray-950"
+                 bg-gradient-to-br from-secondary-950 via-accent-950 to-cyan-950 
+                 dark:from-black dark:via-accent-950 dark:to-gray-950"
     >
       {/* Particules flottantes dynamiques */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map(particle => (
           <div
             key={particle.id}
-            className="absolute bg-gradient-to-br from-teal-400 to-blue-500 rounded-full opacity-60 animate-pulse"
+            className="absolute bg-gradient-to-br from-primary-400 to-secondary-500 rounded-full opacity-60 animate-pulse"
             style={{
               left: `${particle.x}px`,
               top: `${particle.y}px`,
@@ -89,12 +89,12 @@ const Hero: React.FC = () => {
       {/* Éléments géométriques animés avec effet 3D */}
       <div className="absolute inset-0 opacity-30 perspective-1000"> 
         {/* Cercle turquoise avec effet glass */}
-        <div className="absolute top-20 left-10 w-64 h-64 border-2 border-teal-400 rounded-full 
-                        animate-pulse-slow backdrop-blur-sm bg-gradient-to-br from-teal-500/10 to-transparent
+        <div className="absolute top-20 left-10 w-64 h-64 border-2 border-primary-400 rounded-full 
+                        animate-pulse-slow backdrop-blur-sm bg-gradient-to-br from-primary-500/10 to-transparent
                         shadow-[0_0_80px_rgba(45,212,191,0.3)] transform-gpu transition-transform duration-1000 hover:scale-110"></div>
         {/* Cercle bleu avec rotation 3D */}
-        <div className="absolute bottom-20 right-10 w-48 h-48 border-2 border-blue-400 rounded-full 
-                        animate-spin-slow backdrop-blur-sm bg-gradient-to-br from-blue-500/10 to-transparent
+        <div className="absolute bottom-20 right-10 w-48 h-48 border-2 border-secondary-400 rounded-full 
+                        animate-spin-slow backdrop-blur-sm bg-gradient-to-br from-secondary-500/10 to-transparent
                         shadow-[0_0_60px_rgba(59,130,246,0.4)] transform-gpu transition-transform duration-1000 hover:scale-110"></div>
         {/* Carré cyan avec effet holographique */}
         <div className="absolute top-1/2 left-1/4 w-32 h-32 border-2 border-cyan-400 rotate-45 
@@ -102,11 +102,11 @@ const Hero: React.FC = () => {
                         shadow-[0_0_40px_rgba(34,211,238,0.4)] transform-gpu transition-all duration-1000 hover:rotate-90 hover:scale-125"></div>
         
         {/* Nouveaux éléments géométriques */}
-        <div className="absolute top-1/3 right-1/3 w-20 h-20 border border-purple-400 
-                        animate-bounce backdrop-blur-sm bg-gradient-to-br from-purple-500/10 to-transparent
+        <div className="absolute top-1/3 right-1/3 w-20 h-20 border border-accent-400 
+                        animate-bounce backdrop-blur-sm bg-gradient-to-br from-accent-500/10 to-transparent
                         shadow-[0_0_30px_rgba(168,85,247,0.3)] transform-gpu"></div>
-        <div className="absolute bottom-1/3 left-1/3 w-16 h-64 border border-emerald-400 rotate-12 
-                        animate-pulse backdrop-blur-sm bg-gradient-to-br from-emerald-500/10 to-transparent
+        <div className="absolute bottom-1/3 left-1/3 w-16 h-64 border border-nature-400 rotate-12 
+                        animate-pulse backdrop-blur-sm bg-gradient-to-br from-nature-500/10 to-transparent
                         shadow-[0_0_25px_rgba(16,185,129,0.3)] transform-gpu"></div>
       </div>
 
@@ -169,11 +169,11 @@ const Hero: React.FC = () => {
 
       {/* Effet de lueur d'arrière-plan pulsant */}
       <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-1/4 left-1/2 w-96 h-96 bg-teal-500/20 rounded-full 
+        <div className="absolute top-1/4 left-1/2 w-96 h-96 bg-primary-500/20 rounded-full 
                         blur-3xl animate-pulse-slow transform -translate-x-1/2"></div>
-        <div className="absolute bottom-1/4 right-1/2 w-80 h-80 bg-blue-500/20 rounded-full 
+        <div className="absolute bottom-1/4 right-1/2 w-80 h-80 bg-secondary-500/20 rounded-full 
                         blur-3xl animate-pulse-slow delay-1000 transform translate-x-1/2"></div>
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-purple-500/15 rounded-full 
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-accent-500/15 rounded-full 
                         blur-3xl animate-pulse-slow delay-2000"></div>
       </div>
 
@@ -181,27 +181,27 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Icônes au-dessus du titre avec animations élégantes */}
         <div className={`mb-8 flex justify-center items-center space-x-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <div className="p-4 bg-gradient-to-br from-teal-100 to-teal-50 dark:from-teal-900 dark:to-teal-800 rounded-full 
+          <div className="p-4 bg-gradient-to-br from-primary-100 to-primary-50 dark:from-primary-900 dark:to-primary-800 rounded-full 
                          shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 
-                         border border-teal-200 dark:border-teal-700 hover:rotate-12 group"> 
-            <Sprout className="w-8 h-8 text-teal-600 dark:text-teal-400 group-hover:animate-pulse" /> 
+                         border border-primary-200 dark:border-primary-700 hover:rotate-12 group"> 
+            <Sprout className="w-8 h-8 text-primary-600 dark:text-primary-400 group-hover:animate-pulse" /> 
           </div>
-          <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900 dark:to-blue-800 rounded-full
+          <div className="p-4 bg-gradient-to-br from-secondary-100 to-secondary-50 dark:from-secondary-900 dark:to-secondary-800 rounded-full
                          shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 
-                         border border-blue-200 dark:border-blue-700 hover:-rotate-12 group">
-            <Cpu className="w-8 h-8 text-blue-600 dark:text-blue-400 group-hover:animate-spin" />
+                         border border-secondary-200 dark:border-secondary-700 hover:-rotate-12 group">
+            <Cpu className="w-8 h-8 text-secondary-600 dark:text-secondary-400 group-hover:animate-spin" />
           </div>
         </div>
 
         {/* Titre principal avec animation de typing et effet 3D */}
         <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-12 opacity-0 scale-95'}`}>
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-slate-100 dark:text-white mb-6 
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-neutral-100 dark:text-white mb-6 
                          drop-shadow-[0_8px_32px_rgba(45,212,191,0.3)] hover:drop-shadow-[0_12px_48px_rgba(45,212,191,0.5)]
                          transition-all duration-500 cursor-default select-none">
             <span className="inline-block hover:animate-pulse transition-transform duration-300 hover:scale-105">
               Ulysse
             </span>{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-teal-400 bg-clip-text text-transparent 
+            <span className="bg-gradient-to-r from-secondary-400 via-accent-500 to-primary-400 bg-clip-text text-transparent 
                            animate-gradient-x bg-300% inline-block hover:animate-bounce transition-transform duration-300 hover:scale-110
                            drop-shadow-[0_0_20px_rgba(45,212,191,0.8)]">
               Borris
@@ -213,22 +213,22 @@ const Hero: React.FC = () => {
 
         {/* Titres de poste et compétences clés avec animations staggered */}
         <div className={`mb-12 transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <p className="text-lg text-slate-300 mb-6 animate-fade-in-up font-light tracking-wide">
-            <span className="text-teal-400">Développeur</span> • 
-            <span className="text-blue-400 mx-2">Agriculteur Biologique</span> • 
-            <span className="text-purple-400">Innovateur IoT</span>
+          <p className="text-lg text-neutral-300 mb-6 animate-fade-in-up font-light tracking-wide">
+            <span className="text-primary-400">Développeur</span> • 
+            <span className="text-secondary-400 mx-2">Agriculteur Biologique</span> • 
+            <span className="text-accent-400">Innovateur IoT</span>
           </p>
           {/* Tags de compétences avec effet glass morphism et animations */}
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="px-4 py-2 bg-gradient-to-br from-teal-500/20 to-teal-600/10 text-teal-300 rounded-full 
-                           border border-teal-400/30 backdrop-blur-md shadow-lg hover:shadow-teal-500/25 
-                           transition-all duration-300 hover:scale-105 hover:bg-teal-500/30 hover:border-teal-400/50
+            <span className="px-4 py-2 bg-gradient-to-br from-primary-500/20 to-primary-600/10 text-primary-300 rounded-full 
+                           border border-primary-400/30 backdrop-blur-md shadow-lg hover:shadow-primary-500/25 
+                           transition-all duration-300 hover:scale-105 hover:bg-primary-500/30 hover:border-primary-400/50
                            animate-fade-in-up delay-[800ms]">
               Python & Flask
             </span>
-            <span className="px-4 py-2 bg-gradient-to-br from-blue-500/20 to-blue-600/10 text-blue-300 rounded-full 
-                           border border-blue-400/30 backdrop-blur-md shadow-lg hover:shadow-blue-500/25 
-                           transition-all duration-300 hover:scale-105 hover:bg-blue-500/30 hover:border-blue-400/50
+            <span className="px-4 py-2 bg-gradient-to-br from-secondary-500/20 to-secondary-600/10 text-secondary-300 rounded-full 
+                           border border-secondary-400/30 backdrop-blur-md shadow-lg hover:shadow-secondary-500/25 
+                           transition-all duration-300 hover:scale-105 hover:bg-secondary-500/30 hover:border-secondary-400/50
                            animate-fade-in-up delay-[900ms]">
               React & TypeScript
             </span>
@@ -238,9 +238,9 @@ const Hero: React.FC = () => {
                            animate-fade-in-up delay-[1000ms]">
               Raspberry Pi & IoT
             </span>
-            <span className="px-4 py-2 bg-gradient-to-br from-purple-500/20 to-purple-600/10 text-purple-300 rounded-full 
-                           border border-purple-400/30 backdrop-blur-md shadow-lg hover:shadow-purple-500/25 
-                           transition-all duration-300 hover:scale-105 hover:bg-purple-500/30 hover:border-purple-400/50
+            <span className="px-4 py-2 bg-gradient-to-br from-accent-500/20 to-accent-600/10 text-accent-300 rounded-full 
+                           border border-accent-400/30 backdrop-blur-md shadow-lg hover:shadow-accent-500/25 
+                           transition-all duration-300 hover:scale-105 hover:bg-accent-500/30 hover:border-accent-400/50
                            animate-fade-in-up delay-[1100ms]">
               Technologie Agricole
             </span>
@@ -252,8 +252,8 @@ const Hero: React.FC = () => {
           <button
             onClick={scrollToProjects}
             className="group relative inline-flex items-center space-x-3 px-10 py-5 
-                       bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 
-                       hover:from-blue-500 hover:via-purple-500 hover:to-teal-500 
+                       bg-gradient-to-r from-secondary-600 via-accent-600 to-primary-600 
+                       hover:from-secondary-500 hover:via-accent-500 hover:to-primary-500 
                        text-white rounded-full font-medium transition-all duration-500 
                        transform hover:scale-110 shadow-2xl hover:shadow-[0_20px_40px_rgba(45,212,191,0.4)]
                        border border-white/20 backdrop-blur-sm
@@ -274,14 +274,14 @@ const Hero: React.FC = () => {
       {/* Indicateur de défilement animé avec effet néon */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group"
            onClick={scrollToProjects}>
-        <div className="w-8 h-12 border-2 border-teal-400 dark:border-teal-300 rounded-full flex justify-center 
+        <div className="w-8 h-12 border-2 border-primary-400 dark:border-primary-300 rounded-full flex justify-center 
                        shadow-[0_0_20px_rgba(45,212,191,0.5)] group-hover:shadow-[0_0_30px_rgba(45,212,191,0.8)] 
-                       transition-all duration-300 backdrop-blur-sm bg-gradient-to-b from-teal-500/10 to-transparent
+                       transition-all duration-300 backdrop-blur-sm bg-gradient-to-b from-primary-500/10 to-transparent
                        group-hover:scale-110">
-          <div className="w-2 h-4 bg-gradient-to-b from-teal-400 to-teal-300 rounded-full mt-2 
+          <div className="w-2 h-4 bg-gradient-to-b from-primary-400 to-primary-300 rounded-full mt-2 
                          animate-pulse shadow-[0_0_10px_rgba(45,212,191,0.8)] group-hover:animate-bounce"></div>
         </div>
-        <p className="text-xs text-teal-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <p className="text-xs text-primary-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Découvrir
         </p>
       </div>

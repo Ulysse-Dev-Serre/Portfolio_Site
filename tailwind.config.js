@@ -8,19 +8,80 @@ export default {
         'serif': ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
       },
       colors: {
-        emerald: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          200: '#a7f3d0',
-          300: '#6ee7b7',
-          400: '#34d399',
-          500: '#10b981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065f46',
-          900: '#064e3b',
+        // ===== THÈME PRINCIPAL =====
+        // Ces couleurs définissent l'identité visuelle du site
+        // Changez ces valeurs pour modifier tout le thème en une fois
+        
+        primary: {
+          // Couleur principale - Turquoise subtil
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf', // Turquoise subtil pour accents
+          500: '#14b8a6',
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#134e4a',
+          900: '#0f3a35',
+          950: '#052420',
         },
-        slate: {
+        secondary: {
+          // Couleur secondaire - Vert émeraude subtil
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80', // Vert subtil pour accents
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#15803d',
+          800: '#166534',
+          900: '#14532d',
+          950: '#0a2e1a',
+        },
+        accent: {
+          // Couleur d'accentuation - Vert menthe subtil
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80', // Vert menthe pour effets spéciaux
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#15803d',
+          800: '#166534',
+          900: '#14532d',
+          950: '#052e16',
+        },
+        nature: {
+          // Couleur nature/organique - Vert naturel
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80', // Vert naturel pour thème agriculture/bio
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#15803d',
+          800: '#166534',
+          900: '#14532d',
+        },
+        warm: {
+          // Couleur chaude (actuellement amber/orange pour Contact)
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24', // Utilisé pour section Contact
+          500: '#f59e0b',
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
+        },
+        neutral: {
+          // Couleurs neutres (actuellement slate/gray)
           50: '#f8fafc',
           100: '#f1f5f9',
           200: '#e2e8f0',
@@ -31,16 +92,36 @@ export default {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
+          950: '#020617',
         },
-        amber: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
+        
+        // ===== COULEURS UTILITAIRES =====
+        // Gardées pour compatibilité avec Tailwind
+        emerald: {
+          400: '#34d399',
+          500: '#10b981',
+        },
+        teal: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6',
+          600: '#0d9488',
+          700: '#0f766e',
+        },
+        cyan: {
+          50: '#ecfeff',
+          100: '#cffafe',
+          200: '#a5f3fc',
+          300: '#67e8f9',
+          400: '#22d3ee',
+          500: '#06b6d4',
+          600: '#0891b2',
+          700: '#0e7490',
+          900: '#164e63',
+          950: '#083344',
         },
         blue: {
           50: '#eff6ff',
@@ -51,7 +132,44 @@ export default {
           700: '#1d4ed8',
           800: '#1e40af',
           900: '#1e3a8a',
+          950: '#172554',
         },
+        purple: {
+          400: '#c084fc',
+          500: '#a855f7',
+          600: '#9333ea',
+          950: '#3b0764',
+        },
+        amber: {
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',
+        },
+        orange: {
+          500: '#f97316',
+        },
+        yellow: {
+          400: '#facc15',
+          500: '#eab308',
+        },
+        slate: {
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+        },
+        gray: {
+          400: '#9ca3af',
+          700: '#374151',
+          950: '#030712',
+        },
+        rose: {
+          400: '#fb7185',
+        },
+        white: '#ffffff',
       },
       animation: {
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',

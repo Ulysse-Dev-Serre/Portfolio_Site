@@ -88,15 +88,15 @@ const Contact: React.FC = () => {
     <section 
       id="contact" 
       className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden
-                 bg-gradient-to-br from-blue-950 via-purple-950 to-cyan-950 
-                 dark:from-black dark:via-purple-950 dark:to-gray-950 text-white"
+                 bg-gradient-to-br from-secondary-950 via-accent-950 to-primary-950 
+                 dark:from-black dark:via-accent-950 dark:to-neutral-950 text-white"
     >
       {/* Particules dorées pour la communication */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map(particle => (
           <div
             key={particle.id}
-            className="absolute bg-gradient-to-br from-amber-400 to-orange-500 rounded-full animate-pulse"
+            className="absolute bg-gradient-to-br from-warm-400 to-warm-500 rounded-full animate-pulse"
             style={{
               left: `${particle.x}px`,
               top: `${particle.y}px`,
@@ -112,11 +112,11 @@ const Contact: React.FC = () => {
 
       {/* Effets lumineux d'arrière-plan */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-amber-500/25 rounded-full 
+        <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-warm-500/25 rounded-full 
                         blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-orange-500/20 rounded-full 
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-warm-500/20 rounded-full 
                         blur-3xl animate-pulse-slow delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-yellow-500/15 rounded-full 
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-warm-500/15 rounded-full 
                         blur-3xl animate-pulse-slow delay-4000"></div>
       </div>
 
@@ -125,47 +125,47 @@ const Contact: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6
                          drop-shadow-[0_8px_32px_rgba(251,191,36,0.3)] hover:drop-shadow-[0_12px_48px_rgba(251,191,36,0.5)]
                          transition-all duration-500">
-            <span className="bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent 
+            <span className="bg-gradient-to-r from-warm-400 via-warm-400 to-warm-400 bg-clip-text text-transparent 
                            animate-gradient-x bg-300%">
               Cultivons Quelque Chose
             </span>{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent 
+            <span className="bg-gradient-to-r from-secondary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent 
                            animate-gradient-x bg-300%">
               d'Étonnant
             </span>
           </h2>
-          <p className="text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed font-light">
-            Que vous recherchiez du <span className="text-amber-400 font-medium">développement freelance</span>, des conseils en <span className="text-orange-400 font-medium">technologie agricole</span>,
-            ou une <span className="text-yellow-400 font-medium">collaboration de recherche</span> — j'aimerais avoir de vos nouvelles.
+          <p className="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed font-light">
+            Que vous recherchiez du <span className="text-warm-400 font-medium">développement freelance</span>, des conseils en <span className="text-warm-400 font-medium">technologie agricole</span>,
+            ou une <span className="text-warm-400 font-medium">collaboration de recherche</span> — j'aimerais avoir de vos nouvelles.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Informations de Contact */}
           <div className={`lg:col-span-1 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <div className="backdrop-blur-md bg-gradient-to-br from-slate-800/80 via-slate-900/70 to-slate-800/80 
+            <div className="backdrop-blur-md bg-gradient-to-br from-neutral-800/80 via-neutral-900/70 to-neutral-800/80 
                            rounded-2xl p-8 shadow-2xl border border-white/10 hover:border-white/20
                            hover:shadow-[0_25px_50px_rgba(0,0,0,0.4)] transition-all duration-500
-                           hover:bg-gradient-to-br hover:from-slate-800/90 hover:via-slate-900/80 hover:to-slate-800/90">
+                           hover:bg-gradient-to-br hover:from-neutral-800/90 hover:via-neutral-900/80 hover:to-neutral-800/90">
               
               <h3 className="text-2xl font-serif font-bold text-white mb-8 
-                           drop-shadow-lg hover:text-amber-300 transition-colors duration-300">
+                           drop-shadow-lg hover:text-warm-300 transition-colors duration-300">
                 Prenez Contact
               </h3>
 
               <div className="space-y-8">
                 {/* Email */}
                 <div className="flex items-center space-x-4 group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-amber-500/20 to-orange-500/10 rounded-2xl flex items-center justify-center
-                                 border border-amber-400/30 shadow-lg group-hover:shadow-amber-500/25 
+                  <div className="w-14 h-14 bg-gradient-to-br from-warm-500/20 to-warm-500/10 rounded-2xl flex items-center justify-center
+                                 border border-warm-400/30 shadow-lg group-hover:shadow-warm-500/25 
                                  transition-all duration-300 group-hover:scale-110 backdrop-blur-md">
-                    <Mail className="w-6 h-6 text-amber-400 group-hover:animate-pulse" />
+                    <Mail className="w-6 h-6 text-warm-400 group-hover:animate-pulse" />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-300 font-light">Courriel</p>
+                    <p className="text-sm text-neutral-300 font-light">Courriel</p>
                     <a
                       href="mailto:ulyssebo255@gmail.com"
-                      className="text-white font-medium hover:text-amber-300 transition-colors duration-300"
+                      className="text-white font-medium hover:text-warm-300 transition-colors duration-300"
                     >
                       ulyssebo255@gmail.com
                     </a>
@@ -174,26 +174,26 @@ const Contact: React.FC = () => {
 
                 {/* Téléphone */}
                 <div className="flex items-center space-x-4 group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-2xl flex items-center justify-center
-                                 border border-blue-400/30 shadow-lg group-hover:shadow-blue-500/25 
+                  <div className="w-14 h-14 bg-gradient-to-br from-secondary-500/20 to-secondary-600/10 rounded-2xl flex items-center justify-center
+                                 border border-secondary-400/30 shadow-lg group-hover:shadow-secondary-500/25 
                                  transition-all duration-300 group-hover:scale-110 backdrop-blur-md">
-                    <Phone className="w-6 h-6 text-blue-400 group-hover:animate-pulse" />
+                    <Phone className="w-6 h-6 text-secondary-400 group-hover:animate-pulse" />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-300 font-light">Téléphone</p>
+                    <p className="text-sm text-neutral-300 font-light">Téléphone</p>
                     <p className="text-white font-medium">+1 (555) 123-4567</p>
                   </div>
                 </div>
 
                 {/* Localisation */}
                 <div className="flex items-center space-x-4 group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-teal-500/20 to-teal-600/10 rounded-2xl flex items-center justify-center
-                                 border border-teal-400/30 shadow-lg group-hover:shadow-teal-500/25 
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary-500/20 to-primary-600/10 rounded-2xl flex items-center justify-center
+                                 border border-primary-400/30 shadow-lg group-hover:shadow-primary-500/25 
                                  transition-all duration-300 group-hover:scale-110 backdrop-blur-md">
-                    <MapPin className="w-6 h-6 text-teal-400 group-hover:animate-pulse" />
+                    <MapPin className="w-6 h-6 text-primary-400 group-hover:animate-pulse" />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-300 font-light">Localisation</p>
+                    <p className="text-sm text-neutral-300 font-light">Localisation</p>
                     <p className="text-white font-medium">Repentigny, Québec, Canada</p>
                   </div>
                 </div>
@@ -206,12 +206,12 @@ const Contact: React.FC = () => {
                     href="https://github.com/Ulysse-Dev-Serre"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group w-12 h-12 bg-gradient-to-br from-slate-700/80 to-slate-800/60 rounded-xl flex items-center justify-center
+                    className="group w-12 h-12 bg-gradient-to-br from-neutral-700/80 to-neutral-800/60 rounded-xl flex items-center justify-center
                              border border-white/20 hover:border-white/30 shadow-lg hover:shadow-2xl transition-all duration-300 
                              hover:scale-110 backdrop-blur-md relative overflow-hidden"
                     aria-label="Profil GitHub"
                   >
-                    <Github className="w-6 h-6 text-white group-hover:text-amber-300 transition-colors z-10" />
+                    <Github className="w-6 h-6 text-white group-hover:text-warm-300 transition-colors z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
                                    translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                   </a>
@@ -219,12 +219,12 @@ const Contact: React.FC = () => {
                     href="https://www.linkedin.com/in/ulysse-borris-052216331/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group w-12 h-12 bg-gradient-to-br from-slate-700/80 to-slate-800/60 rounded-xl flex items-center justify-center
+                    className="group w-12 h-12 bg-gradient-to-br from-neutral-700/80 to-neutral-800/60 rounded-xl flex items-center justify-center
                              border border-white/20 hover:border-white/30 shadow-lg hover:shadow-2xl transition-all duration-300 
                              hover:scale-110 backdrop-blur-md relative overflow-hidden"
                     aria-label="Profil LinkedIn"
                   >
-                    <Linkedin className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors z-10" />
+                    <Linkedin className="w-6 h-6 text-white group-hover:text-secondary-400 transition-colors z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
                                    translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                   </a>
@@ -235,13 +235,13 @@ const Contact: React.FC = () => {
 
           {/* Formulaire de Contact */}
           <div className={`lg:col-span-2 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <div className="backdrop-blur-md bg-gradient-to-br from-slate-800/80 via-slate-900/70 to-slate-800/80 
+            <div className="backdrop-blur-md bg-gradient-to-br from-neutral-800/80 via-neutral-900/70 to-neutral-800/80 
                            rounded-2xl p-8 shadow-2xl border border-white/10 hover:border-white/20
                            hover:shadow-[0_25px_50px_rgba(0,0,0,0.4)] transition-all duration-500
-                           hover:bg-gradient-to-br hover:from-slate-800/90 hover:via-slate-900/80 hover:to-slate-800/90">
+                           hover:bg-gradient-to-br hover:from-neutral-800/90 hover:via-neutral-900/80 hover:to-neutral-800/90">
               
               <h3 className="text-2xl font-serif font-bold text-white mb-8 
-                           drop-shadow-lg hover:text-amber-300 transition-colors duration-300">
+                           drop-shadow-lg hover:text-warm-300 transition-colors duration-300">
                 Envoyer un Message
               </h3>
 
@@ -249,7 +249,7 @@ const Contact: React.FC = () => {
                 {/* Nom et Email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="group">
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-200 mb-3 group-focus-within:text-amber-400 transition-colors">
+                    <label htmlFor="name" className="block text-sm font-medium text-neutral-200 mb-3 group-focus-within:text-warm-400 transition-colors">
                       Votre Nom
                     </label>
                     <input
@@ -258,15 +258,15 @@ const Contact: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 bg-slate-700/50 border border-white/20 rounded-xl 
-                               focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 text-white 
-                               transition-all duration-300 placeholder-slate-400 backdrop-blur-md
-                               hover:border-white/30 hover:bg-slate-700/70"
+                      className="w-full px-6 py-4 bg-neutral-700/50 border border-white/20 rounded-xl 
+                               focus:ring-2 focus:ring-warm-400/50 focus:border-warm-400 text-white 
+                               transition-all duration-300 placeholder-neutral-400 backdrop-blur-md
+                               hover:border-white/30 hover:bg-neutral-700/70"
                       required
                     />
                   </div>
                   <div className="group">
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-200 mb-3 group-focus-within:text-amber-400 transition-colors">
+                    <label htmlFor="email" className="block text-sm font-medium text-neutral-200 mb-3 group-focus-within:text-warm-400 transition-colors">
                       Adresse E-mail
                     </label>
                     <input
@@ -275,10 +275,10 @@ const Contact: React.FC = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 bg-slate-700/50 border border-white/20 rounded-xl 
-                               focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 text-white 
-                               transition-all duration-300 placeholder-slate-400 backdrop-blur-md
-                               hover:border-white/30 hover:bg-slate-700/70"
+                      className="w-full px-6 py-4 bg-neutral-700/50 border border-white/20 rounded-xl 
+                               focus:ring-2 focus:ring-warm-400/50 focus:border-warm-400 text-white 
+                               transition-all duration-300 placeholder-neutral-400 backdrop-blur-md
+                               hover:border-white/30 hover:bg-neutral-700/70"
                       required
                     />
                   </div>
@@ -286,7 +286,7 @@ const Contact: React.FC = () => {
 
                 {/* Sujet */}
                 <div className="group">
-                  <label htmlFor="subject" className="block text-sm font-medium text-slate-200 mb-3 group-focus-within:text-amber-400 transition-colors">
+                  <label htmlFor="subject" className="block text-sm font-medium text-neutral-200 mb-3 group-focus-within:text-warm-400 transition-colors">
                     Sujet
                   </label>
                   <select
@@ -294,10 +294,10 @@ const Contact: React.FC = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 bg-slate-700/50 border border-white/20 rounded-xl 
-                             focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 text-white 
+                    className="w-full px-6 py-4 bg-neutral-700/50 border border-white/20 rounded-xl 
+                             focus:ring-2 focus:ring-warm-400/50 focus:border-warm-400 text-white 
                              transition-all duration-300 backdrop-blur-md appearance-none
-                             hover:border-white/30 hover:bg-slate-700/70"
+                             hover:border-white/30 hover:bg-neutral-700/70"
                     required
                   >
                     <option value="">Sélectionnez un sujet</option>
@@ -311,7 +311,7 @@ const Contact: React.FC = () => {
 
                 {/* Message */}
                 <div className="group">
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-200 mb-3 group-focus-within:text-amber-400 transition-colors">
+                  <label htmlFor="message" className="block text-sm font-medium text-neutral-200 mb-3 group-focus-within:text-warm-400 transition-colors">
                     Message
                   </label>
                   <textarea
@@ -320,10 +320,10 @@ const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full px-6 py-4 bg-slate-700/50 border border-white/20 rounded-xl 
-                             focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 text-white 
-                             transition-all duration-300 resize-none placeholder-slate-400 backdrop-blur-md
-                             hover:border-white/30 hover:bg-slate-700/70"
+                    className="w-full px-6 py-4 bg-neutral-700/50 border border-white/20 rounded-xl 
+                             focus:ring-2 focus:ring-warm-400/50 focus:border-warm-400 text-white 
+                             transition-all duration-300 resize-none placeholder-neutral-400 backdrop-blur-md
+                             hover:border-white/30 hover:bg-neutral-700/70"
                     placeholder="Parlez-moi de votre projet ou de votre idée..." 
                     required
                   />
@@ -333,8 +333,8 @@ const Contact: React.FC = () => {
                 <button
                   type="submit"
                   className="group w-full flex items-center justify-center space-x-3 px-8 py-4 
-                           bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 
-                           hover:from-amber-400 hover:via-orange-400 hover:to-amber-500 
+                           bg-gradient-to-r from-warm-500 via-warm-500 to-warm-600 
+                           hover:from-warm-400 hover:via-warm-400 hover:to-warm-500 
                            text-white rounded-xl font-semibold transition-all duration-500 
                            transform hover:scale-105 shadow-2xl hover:shadow-[0_20px_40px_rgba(251,191,36,0.4)]
                            border border-white/20 backdrop-blur-sm relative overflow-hidden"

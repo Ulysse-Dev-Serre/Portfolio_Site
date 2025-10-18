@@ -99,15 +99,15 @@ const About: React.FC = () => {
     <section
       id="about"
       className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden
-                   bg-gradient-to-br from-blue-950 via-purple-950 to-cyan-950
-                   dark:from-black dark:via-purple-950 dark:to-gray-950 text-white"
+                   bg-gradient-to-br from-secondary-950 via-accent-950 to-cyan-950
+                   dark:from-black dark:via-accent-950 dark:to-gray-950 text-white"
     >
       {/* Particules organiques flottantes */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map(particle => (
           <div
             key={particle.id}
-            className="absolute bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full animate-pulse"
+            className="absolute bg-gradient-to-br from-nature-400 to-primary-500 rounded-full animate-pulse"
             style={{
               left: `${particle.x}px`,
               top: `${particle.y}px`,
@@ -123,13 +123,13 @@ const About: React.FC = () => {
 
       {/* Effets lumineux d'arrière-plan organiques */}
       <div className="absolute inset-0 opacity-25">
-        <div className="absolute top-1/6 left-1/6 w-80 h-80 bg-emerald-500/20 rounded-full 
+        <div className="absolute top-1/6 left-1/6 w-80 h-80 bg-nature-500/20 rounded-full 
                         blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/6 right-1/6 w-96 h-96 bg-teal-500/15 rounded-full 
+        <div className="absolute bottom-1/6 right-1/6 w-96 h-96 bg-primary-500/15 rounded-full 
                         blur-3xl animate-pulse-slow delay-3000"></div>
-        <div className="absolute top-2/3 left-2/3 w-64 h-64 bg-blue-500/20 rounded-full 
+        <div className="absolute top-2/3 left-2/3 w-64 h-64 bg-secondary-500/20 rounded-full 
                         blur-3xl animate-pulse-slow delay-1500"></div>
-        <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-purple-500/10 rounded-full 
+        <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-accent-500/10 rounded-full 
                         blur-3xl animate-pulse-slow delay-4000"></div>
       </div>
 
@@ -140,12 +140,12 @@ const About: React.FC = () => {
                            drop-shadow-[0_8px_32px_rgba(16,185,129,0.3)] hover:drop-shadow-[0_12px_48px_rgba(16,185,129,0.5)]
                            transition-all duration-500">
               Là où la{' '}
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-400 bg-clip-text text-transparent 
+              <span className="bg-gradient-to-r from-nature-400 via-primary-400 to-secondary-400 bg-clip-text text-transparent 
                              animate-gradient-x bg-300%">
                 Terre
               </span>{' '}
               Rencontre{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent 
+              <span className="bg-gradient-to-r from-secondary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent 
                              animate-gradient-x bg-300%">
                 l'Algorithme
               </span>
@@ -153,9 +153,9 @@ const About: React.FC = () => {
 
             {/* Image de profil avec effets premium */}
             <div className="relative w-40 h-40 mb-8 mx-auto lg:mx-0 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-blue-500 
+              <div className="absolute inset-0 bg-gradient-to-br from-nature-400 via-primary-400 to-secondary-500 
                              rounded-full animate-spin-slow opacity-75 blur-sm"></div>
-              <div className="absolute inset-2 bg-gradient-to-br from-emerald-500 to-teal-600 
+              <div className="absolute inset-2 bg-gradient-to-br from-nature-500 to-primary-600 
                              rounded-full opacity-50 animate-pulse-slow"></div>
               <div className="relative w-full h-full rounded-full overflow-hidden 
                              shadow-2xl group-hover:shadow-[0_20px_40px_rgba(16,185,129,0.4)]
@@ -168,7 +168,7 @@ const About: React.FC = () => {
                 />
               </div>
               {/* Halo lumineux */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/20 to-teal-400/20 
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-nature-400/20 to-primary-400/20 
                              blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
             </div>
 
@@ -177,10 +177,10 @@ const About: React.FC = () => {
                             animate-[fadeInUp_0.8s_ease-out_0.3s_forwards]">
                 <p className="backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10
                              hover:bg-white/10 hover:border-white/20 transition-all duration-300
-                             shadow-lg hover:shadow-emerald-500/10">
-                  Mon parcours a débuté <span className="text-emerald-400 font-medium">les mains dans la terre</span>, dans une quête minimaliste d'autosuffisance alimentaire.
+                             shadow-lg hover:shadow-nature-500/10">
+                  Mon parcours a débuté <span className="text-nature-400 font-medium">les mains dans la terre</span>, dans une quête minimaliste d'autosuffisance alimentaire.
                   J'ai exploré la production de légumes et de fruits frais, de miel et de cire, de plantes médicinales,
-                  ainsi que la cueillette sauvage — à la fois pour mes besoins personnels que pour contribuer concrètement à <span className="text-teal-400 font-medium">l'approvisionnement local</span>.
+                  ainsi que la cueillette sauvage — à la fois pour mes besoins personnels que pour contribuer concrètement à <span className="text-primary-400 font-medium">l'approvisionnement local</span>.
                 </p>
               </div>
 
@@ -188,8 +188,8 @@ const About: React.FC = () => {
                             animate-[fadeInUp_0.8s_ease-out_0.5s_forwards]">
                 <p className="backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10
                              hover:bg-white/10 hover:border-white/20 transition-all duration-300
-                             shadow-lg hover:shadow-teal-500/10">
-                  Cette immersion dans le vivant m'a amené à réfléchir aux liens entre <span className="text-blue-400 font-medium">autonomie alimentaire et technologies contemporaines</span>. 
+                             shadow-lg hover:shadow-primary-500/10">
+                  Cette immersion dans le vivant m'a amené à réfléchir aux liens entre <span className="text-secondary-400 font-medium">autonomie alimentaire et technologies contemporaines</span>. 
                   Peu à peu, j'ai entrevu le potentiel d'outils simples et connectés pour accompagner, sans dénaturer, les pratiques de jardinage 
                   et de culture à petite échelle, en milieu urbain comme rural.
                 </p>
@@ -199,8 +199,8 @@ const About: React.FC = () => {
                             animate-[fadeInUp_0.8s_ease-out_0.7s_forwards]">
                 <p className="backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10
                              hover:bg-white/10 hover:border-white/20 transition-all duration-300
-                             shadow-lg hover:shadow-purple-500/10">
-                  Actuellement en <span className="text-purple-400 font-medium">AEC en Développement Logiciel</span> (2024–2026), j'y découvre les fondements du développement logiciel, notamment le front-end avec React et Flutter, 
+                             shadow-lg hover:shadow-accent-500/10">
+                  Actuellement en <span className="text-accent-400 font-medium">AEC en Développement Logiciel</span> (2024–2026), j'y découvre les fondements du développement logiciel, notamment le front-end avec React et Flutter, 
                   afin de donner vie à mes projets, concevoir mes vitrines web et explorer le développement mobile. En parallèle, je me concentre sur les domaines qui 
                   me passionnent : <span className="text-cyan-400 font-medium"> Python, Service web, l'électronique embarquée (Raspberry Pi), la gestion de données et l'IA</span>.
                 </p>
@@ -209,7 +209,7 @@ const About: React.FC = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 via-teal-500 to-blue-500 rounded-full opacity-60"></div>
+            <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-nature-500 via-primary-500 to-secondary-500 rounded-full opacity-60"></div>
 
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
@@ -219,30 +219,30 @@ const About: React.FC = () => {
                              ${visibleMilestones[index] ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}
                 >
                   <div className="flex-shrink-0 relative">
-                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center text-white
-                                   shadow-2xl hover:shadow-emerald-500/40 transition-all duration-300 hover:scale-110 hover:rotate-12
+                    <div className="w-12 h-12 bg-gradient-to-br from-nature-500 to-primary-600 rounded-2xl flex items-center justify-center text-white
+                                   shadow-2xl hover:shadow-nature-500/40 transition-all duration-300 hover:scale-110 hover:rotate-12
                                    border-2 border-white/20 backdrop-blur-sm group">
                       <div className="group-hover:animate-pulse">
                         {milestone.icon}
                       </div>
                     </div>
                     {/* Effet de lueur */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl blur-md opacity-30 -z-10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-nature-400 to-primary-500 rounded-2xl blur-md opacity-30 -z-10"></div>
                   </div>
 
                   <div className="flex-grow backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10
                                  hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-lg
-                                 hover:shadow-emerald-500/10 hover:translate-x-2">
+                                 hover:shadow-nature-500/10 hover:translate-x-2">
                     <div className="flex items-center space-x-4 mb-3">
-                      <h3 className="text-xl font-semibold text-white group-hover:text-emerald-300 transition-colors">
+                      <h3 className="text-xl font-semibold text-white group-hover:text-nature-300 transition-colors">
                         {milestone.title}
                       </h3>
-                      <span className="px-3 py-1 bg-gradient-to-br from-emerald-500/20 to-teal-500/10 text-emerald-300 text-sm rounded-full
-                                     border border-emerald-400/30 backdrop-blur-md shadow-lg">
+                      <span className="px-3 py-1 bg-gradient-to-br from-nature-500/20 to-primary-500/10 text-nature-300 text-sm rounded-full
+                                     border border-nature-400/30 backdrop-blur-md shadow-lg">
                         {milestone.period}
                       </span>
                     </div>
-                    <p className="text-slate-200 leading-relaxed font-light">
+                    <p className="text-neutral-200 leading-relaxed font-light">
                       {milestone.description}
                     </p>
                   </div>
