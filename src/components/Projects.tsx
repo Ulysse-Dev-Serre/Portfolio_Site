@@ -129,7 +129,7 @@ const Projects: React.FC = () => {
           ],
         },
       ],
-      websiteLink: "https://github.com/Ulysse-Dev-Serre/Projet_IoT_RaspberryPi",
+      websiteLink: "",
       githubLinks: [
         {
           title: "Backend Logic (FastAPI)",
@@ -179,7 +179,7 @@ const Projects: React.FC = () => {
         "Alertes d’arrosage et de soins",
       ],
 
-      websiteLink: "En développement",
+      websiteLink: "",
     },
 
     {
